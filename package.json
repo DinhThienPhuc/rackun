@@ -1,0 +1,21 @@
+{
+  "name": "autobit",
+  "version": "1.0.0",
+  "description": "A tiny script for intergrating Bit with git follow.",
+  "main": "index.js",
+  "type": "module",
+  "preferGlobal": true,
+  "bin": {
+    "autobit": "./bin/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DinhThienPhuc/autobit.git"
+  },
+  "author": "DinhThienPhuc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DinhThienPhuc/autobit/issues"
+  },
+  "homepage": "https://github.com/DinhThienPhuc/autobit#readme"
+}
