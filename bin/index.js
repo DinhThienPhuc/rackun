@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import tagComponents from "../commands/tagComponents.js";
+import tagComponents from "../commands/tag-components.js";
 
 const action = process.argv[2];
 

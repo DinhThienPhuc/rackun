@@ -6,8 +6,9 @@
   "type": "module",
   "preferGlobal": true,
   "bin": {
-    "bit-simple:tag": "./bin/tagComponents.js",
-    "bit-simple:export": "./bin/exportComponents.js"
+    "bit-simple": "./bin/index.js",
+    "bit-simple-tag": "./bin/tag-components.js",
+    "bit-simple-export": "./bin/export-components.js"
   },
   "repository": {
     "type": "git",
