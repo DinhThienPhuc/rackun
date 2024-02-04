@@ -17,5 +17,11 @@
   "bugs": {
     "url": "https://github.com/DinhThienPhuc/autobit/issues"
   },
-  "homepage": "https://github.com/DinhThienPhuc/autobit#readme"
+  "homepage": "https://github.com/DinhThienPhuc/autobit#readme",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "listr": "^0.14.3",
+    "log-symbols": "^6.0.0",
+    "yargs": "^17.7.2"
+  }
 }
