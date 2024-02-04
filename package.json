@@ -1,12 +1,13 @@
 {
-  "name": "autobit",
+  "name": "bit-simple",
   "version": "1.0.0",
   "description": "A tiny script for intergrating Bit with git follow.",
   "main": "index.js",
   "type": "module",
   "preferGlobal": true,
   "bin": {
-    "autobit": "./bin/index.js"
+    "bit-simple:tag": "./bin/tagComponents.js",
+    "bit-simple:export": "./bin/exportComponents.js"
   },
   "repository": {
     "type": "git",
