@@ -4,7 +4,6 @@ import { execAsync } from "./base.js";
 
 const exportComponents = async () => {
   try {
-    // TODO: add checking bit installed tasks
     const tasks = new Listr([
       {
         title: `${chalk.bold.green("EXPORT")} core components tagged.\n`,
