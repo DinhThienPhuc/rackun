@@ -5,7 +5,6 @@ import logSymbols from "log-symbols";
 
 const tagComponents = async () => {
   try {
-    // TODO: add checking bit installed tasks
     const tasks = new Listr([
       {
         title: `${chalk.bold.green("CHECK")} core components changes.\n`,
