@@ -9,7 +9,7 @@ const tagComponents = async () => {
       {
         title: `${chalk.bold.green("CHECK")} core components changes.\n`,
         task: async (ctx, task) => {
-          const result = await execAsync("git diff --name-only HEAD HEAD^");
+          const result = await execAsync("git diff --name-only --cached");
 
           if (result?.stderr) {
             throw new Error(result?.stderr);
@@ -31,9 +31,7 @@ const tagComponents = async () => {
         title: `${chalk.bold.green("TAG")} all core components changes.\n`,
         enabled: (ctx) => ctx.commitedFiles && ctx.commitedFiles.length > 0,
         task: async (ctx) => {
-          const result = await execAsync(
-            `bit tag -m '[${Date.now()}]: update core components'`
-          );
+          const result = await execAsync(`bit tag -m '${Date.now()}'`);
 
           if (result?.stderr) {
             throw new Error(result?.stderr);
@@ -43,17 +41,6 @@ const tagComponents = async () => {
             logSymbols.success,
             `Tagged: \n${ctx.commitedFiles.join("\n")}`
           );
-        },
-      },
-      {
-        title: `${chalk.bold.green("ADD")} ${chalk.bold("bitmap")} file.\n`,
-        enabled: (ctx) => ctx.commitedFiles && ctx.commitedFiles.length > 0,
-        task: async () => {
-          const result = await execAsync("git add .");
-
-          if (result?.stderr) {
-            throw new Error(result?.stderr);
-          }
         },
       },
     ]);
