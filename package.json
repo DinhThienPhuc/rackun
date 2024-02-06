@@ -1,6 +1,6 @@
 {
   "name": "bit-simple",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "A tiny script for intergrating Bit with git follow.",
   "main": "index.js",
   "type": "module",
