@@ -5,9 +5,11 @@ import logSymbols from "log-symbols";
 
 const tagComponents = async () => {
   try {
+    // TODO: add checking bit installed tasks
     const tasks = new Listr([
       {
         title: `${chalk.bold.green("CHECK")} core components changes.\n`,
+        enabled: (ctx) => !ctx.commitBitmap,
         task: async (ctx, task) => {
           const result = await execAsync("git diff --name-only --cached");
 
@@ -29,9 +31,14 @@ const tagComponents = async () => {
       },
       {
         title: `${chalk.bold.green("TAG")} all core components changes.\n`,
-        enabled: (ctx) => ctx.commitedFiles && ctx.commitedFiles.length > 0,
+        enabled: (ctx) =>
+          !ctx.commitBitmap &&
+          ctx.commitedFiles &&
+          ctx.commitedFiles.length > 0,
         task: async (ctx) => {
-          const result = await execAsync(`bit tag -m '${Date.now()}'`);
+          const result = await execAsync(
+            `bit tag -m '[${Date.now()}]: update core components'`
+          );
 
           if (result?.stderr) {
             throw new Error(result?.stderr);
@@ -41,6 +48,37 @@ const tagComponents = async () => {
             logSymbols.success,
             `Tagged: \n${ctx.commitedFiles.join("\n")}`
           );
+        },
+      },
+      {
+        title: `${chalk.bold.green("UPDATE")} ${chalk.bold("bitmap")} file.\n`,
+        enabled: (ctx) => !ctx.commitBitmap,
+        task: async () => {
+          const result2 = await execAsync("git diff --name-only --cached");
+
+          if (result2?.stderr) {
+            throw new Error(result2?.stderr);
+          }
+
+          const containedBitmapFile = result2.stdout.split("\n");
+
+          if (
+            containedBitmapFile.length === 1 &&
+            containedBitmapFile[0] === ".bitmap"
+          ) {
+            ctx.commitBitmap = true;
+            const result3 = await execAsync("git add .");
+            const result4 = await execAsync(
+              "git commit -m 'Update bitmap file!'"
+            );
+
+            if (result3?.stderr || result4.stderr) {
+              throw new Error(result3?.stderr || result4.stderr);
+            }
+            return;
+          }
+
+          task.skip("No bitmap file found!");
         },
       },
     ]);
