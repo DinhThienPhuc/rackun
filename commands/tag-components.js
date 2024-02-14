@@ -53,7 +53,7 @@ const tagComponents = async () => {
       {
         title: `${chalk.bold.green("UPDATE")} ${chalk.bold("bitmap")} file.\n`,
         enabled: (ctx) => !ctx.commitBitmap,
-        task: async () => {
+        task: async (ctx, task) => {
           const result2 = await execAsync("git diff --name-only --cached");
 
           if (result2?.stderr) {
