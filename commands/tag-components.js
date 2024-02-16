@@ -36,9 +36,7 @@ const tagComponents = async () => {
           ctx.commitedFiles &&
           ctx.commitedFiles.length > 0,
         task: async (ctx) => {
-          const result = await execAsync(
-            `bit tag -m '[${Date.now()}]: update core components'`
-          );
+          const result = await execAsync(`bit tag -m '${Date.now()}'`);
 
           if (result?.stderr) {
             throw new Error(result?.stderr);
