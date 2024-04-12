@@ -1,19 +1,24 @@
 #!/usr/bin/env node
 
-import exportComponents from "../commands/export-components.js";
-import tagComponents from "../commands/tag-components.js";
+import act from "../commands/act.js";
+import init from "../commands/init.js";
+import install from "../commands/install.js";
 
 const action = process.argv[2];
 
 switch (action) {
-  case "tag":
-    tagComponents();
+  case "act":
+    act();
     break;
-
-  case "export":
-    exportComponents();
+  // case "thrust":
+  //   thrust();
+  //   break;
+  case "init":
+    init();
     break;
-
+  case "install":
+    install();
+    break;
   default:
     break;
 }

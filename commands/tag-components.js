@@ -1,6 +1,6 @@
 import Listr from "listr";
 import chalk from "chalk";
-import { execAsync } from "./base.js";
+import { execAsync } from "../utils/index.js";
 import logSymbols from "log-symbols";
 
 const tagComponents = async () => {

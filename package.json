@@ -1,23 +1,23 @@
 {
-  "name": "bit-simple",
-  "version": "1.5.1",
+  "name": "rackun",
+  "version": "0.0.1",
   "description": "A tiny script for intergrating Bit with git follow.",
   "main": "index.js",
   "type": "module",
   "preferGlobal": true,
   "bin": {
-    "bit-simple": "./bin/index.js"
+    "rackun": "./bin/index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DinhThienPhuc/bit-simple.git"
+    "url": "git+https://github.com/DinhThienPhuc/rackun.git"
   },
   "author": "DinhThienPhuc",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DinhThienPhuc/bit-simple/issues"
+    "url": "https://github.com/DinhThienPhuc/rackun/issues"
   },
-  "homepage": "https://github.com/DinhThienPhuc/bit-simple#readme",
+  "homepage": "https://github.com/DinhThienPhuc/rackun#readme",
   "dependencies": {
     "chalk": "^5.3.0",
     "listr": "^0.14.3",
