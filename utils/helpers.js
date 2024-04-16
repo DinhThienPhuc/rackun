@@ -21,15 +21,15 @@ export const logger = {
 };
 
 export const loading = (message) => {
-  const P = ["\\", "|", "/", "-"];
+  const slashCharacters = ["\\", "|", "/", "-"];
   let x = 0;
   process.stdout.write("𖦹 " + message + " ");
   const id = setInterval(function () {
-    process.stdout.write("\r" + P[x++]);
+    process.stdout.write("\r" + slashCharacters[x++]);
     x &= 3;
   }, 100);
   return {
-    stop: async () => {
+    stop: () => {
       process.stdout.write("...\n");
       clearInterval(id);
     },
@@ -43,7 +43,7 @@ export const execCommand = async (command, message) => {
   try {
     return await execAsync(command);
   } catch (error) {
-    logger.error("Error while executing command: ", error);
+    logger.error(error);
     return null;
   } finally {
     loader.stop();
@@ -55,7 +55,7 @@ export const execMultiCommands = async (commands) => {
   try {
     return await Promise.all(commands.map((c) => execAsync(c)));
   } catch (error) {
-    logger.error("Error while executing multiple commands: ", error);
+    logger.error(error);
     return null;
   } finally {
     loader.stop();

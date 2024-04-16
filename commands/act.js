@@ -1,9 +1,8 @@
-import { execCommand, logger } from "../utils/helpers.js";
+import { execCommand, logger, wait } from "../utils/helpers.js";
 
 const act = async () => {
   const startTime = performance.now();
   const commitMsg = process.argv[4];
-  let includedCoreComponents = true;
 
   const result1 = await execCommand(
     "git diff --name-only --cached",
@@ -16,21 +15,18 @@ const act = async () => {
   );
 
   if (!allCommitedCoreFiles.length) {
-    includedCoreComponents = false;
     logger.log("No core components found!");
-  }
-
-  if (includedCoreComponents) {
+  } else {
     await execCommand(
-      `bit tag -m 'Updating components'`,
+      `bit tag -m 'Update'`,
       "Tagging all core components changes"
     );
-
+    await wait(2000);
     logger.log("Tagged: \n", allCommitedCoreFiles.join("\n"));
   }
 
   await execCommand("git add .", "Adding files");
-  await execCommand(`git commit -m '${commitMsg}'`, "Committing");
+  await execCommand(`git commit -m "${commitMsg}"`, "Committing");
   const endTime = performance.now();
 
   logger.log(`🦝 Done in ${((endTime - startTime) / 1000).toFixed(1)}s`);

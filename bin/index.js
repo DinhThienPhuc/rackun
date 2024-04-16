@@ -3,6 +3,7 @@
 import act from "../commands/act.js";
 import init from "../commands/init.js";
 import install from "../commands/install.js";
+import thrust from "../commands/thrust.js";
 
 const action = process.argv[2];
 
@@ -10,9 +11,9 @@ switch (action) {
   case "act":
     act();
     break;
-  // case "thrust":
-  //   thrust();
-  //   break;
+  case "thrust":
+    thrust();
+    break;
   case "init":
     init();
     break;

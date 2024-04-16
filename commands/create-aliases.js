@@ -23,11 +23,11 @@ const createAliases = async () => {
 
   // Create if not available
   await execCommand(
-    `git config --global alias.${ALIAS_DATA.ACT.key} "${ALIAS_DATA.ACT.command}"`,
+    `git config --global alias.${ALIAS_DATA.ACT.key} "!${ALIAS_DATA.ACT.command}"`,
     "Creating git alias for acting (committing)"
   );
   await execCommand(
-    `git config --global alias.${ALIAS_DATA.THRUST.key} "${ALIAS_DATA.THRUST.command}"`,
+    `git config --global alias.${ALIAS_DATA.THRUST.key} "!${ALIAS_DATA.THRUST.command}"`,
     "Creating git alias for thrust (pushing)"
   );
 
