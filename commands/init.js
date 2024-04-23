@@ -2,8 +2,12 @@ import { readFileSync, writeFileSync } from "fs";
 
 import { INSTALL_COMMAND } from "../utils/constants.js";
 import createAliases from "./create-aliases.js";
+import { execCommand } from "../utils/helpers.js";
 
 const init = async () => {
+  // Install latest rackun version
+  await execCommand("npm i -g rackun", "Installing latest rackun version");
+
   const packageFile = "package.json";
   const packageFileContent = readFileSync(packageFile);
   const packageFileObject = JSON.parse(packageFileContent);
