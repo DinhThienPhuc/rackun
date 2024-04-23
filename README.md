@@ -1,6 +1,6 @@
 # Rackun 🦝
 
-![Rackun logo](./assets/logo.png "Rackun")
+![Rackun logo](https://dinhthienphuc.github.io/assets/images/logos/rackun.png "Rackun")
 
 [![Build Status](https://img.shields.io/github/actions/workflow/status/dinhthienphuc/rackun/lint-and-type.yml?branch=main&style=flat&colorA=000000&colorB=000000)](https://github.com/dinhthienphuc/rackun/actions?query=workflow%3ALint)
 [![Build Size](https://img.shields.io/bundlephobia/minzip/rackun?label=bundle%20size&style=flat&colorA=000000&colorB=000000)](https://bundlephobia.com/result?p=rackun)
