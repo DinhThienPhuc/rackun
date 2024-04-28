@@ -1,15 +1,23 @@
-import { execCommand, logger, wait } from "../utils/helpers.js";
+import {
+  execCommand,
+  execMultiCommands,
+  logger,
+  wait,
+} from "../utils/helpers.js";
 
 const act = async () => {
   const startTime = performance.now();
   const commitMsg = process.argv[4];
 
-  const result1 = await execCommand(
-    "git diff --name-only --cached",
+  const [unstagedFiles, newFiles] = await execMultiCommands(
+    ["git diff --name-only", "git ls-files --other --exclude-standard"],
     "Checking core components changes"
   );
 
-  const allCommitedFiles = result1.stdout.split("\n");
+  const allCommitedFiles = [
+    ...unstagedFiles.stdout.split("\n"),
+    ...newFiles.stdout.split("\n"),
+  ];
   const allCommitedCoreFiles = allCommitedFiles.filter((file) =>
     file.includes("src/_core/")
   );
