@@ -1,0 +1,26 @@
+const TerserPlugin = require("terser-webpack-plugin");
+const glob = require("glob");
+
+module.exports = {
+  entry: glob
+    .sync("./src/**/*.js")
+    .map((item) => item.replace("./src/", "/"))
+    .reduce((acc, item) => {
+      acc[item] = __dirname + "/src" + item;
+      return acc;
+    }, {}),
+  output: {
+    path: __dirname + "/dist",
+    filename: "[name]",
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          mangle: true,
+        },
+      }),
+    ],
+  },
+};

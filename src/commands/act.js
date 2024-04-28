@@ -1,9 +1,9 @@
-import {
+const {
   execCommand,
   execMultiCommands,
   logger,
   wait,
-} from "../utils/helpers.js";
+} = require("../utils/helpers.js");
 
 const act = async () => {
   const startTime = performance.now();
@@ -40,4 +40,4 @@ const act = async () => {
   logger.log(`🦝 Done in ${((endTime - startTime) / 1000).toFixed(1)}s`);
 };
 
-export default act;
+module.exports = act;

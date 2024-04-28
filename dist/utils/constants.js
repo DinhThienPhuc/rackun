@@ -1,0 +1,1 @@
+(()=>{"use strict";module.exports={ALIAS_DATA:{ACT:{key:"act",command:"rackun act"},THRUST:{key:"thrust",command:"rackun thrust"}},INSTALL_COMMAND:"rackun install"}})();

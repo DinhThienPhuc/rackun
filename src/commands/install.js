@@ -1,5 +1,5 @@
-import createAliases from "./create-aliases.js";
-import { execCommand } from "../utils/helpers.js";
+const createAliases = require("./create-aliases.js");
+const { execCommand } = require("../utils/helpers.js");
 
 const install = async () => {
   // Install latest rackun version
@@ -9,4 +9,4 @@ const install = async () => {
   await createAliases();
 };
 
-export default install;
+module.exports = install;

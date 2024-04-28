@@ -1,4 +1,4 @@
-import { execCommand, logger } from "../utils/helpers.js";
+const { execCommand, logger } = require("../utils/helpers.js");
 
 const thrust = async () => {
   const startTime = performance.now();
@@ -12,4 +12,4 @@ const thrust = async () => {
   logger.log(`🦝 Done in ${((endTime - startTime) / 1000).toFixed(1)}s`);
 };
 
-export default thrust;
+module.exports = thrust;

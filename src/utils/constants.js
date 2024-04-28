@@ -1,4 +1,4 @@
-export const ALIAS_DATA = {
+const ALIAS_DATA = {
   ACT: {
     key: "act",
     command: "rackun act",
@@ -9,4 +9,9 @@ export const ALIAS_DATA = {
   },
 };
 
-export const INSTALL_COMMAND = "rackun install";
+const INSTALL_COMMAND = "rackun install";
+
+module.exports = {
+  ALIAS_DATA,
+  INSTALL_COMMAND,
+};

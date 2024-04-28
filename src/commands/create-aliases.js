@@ -1,6 +1,6 @@
-import { execCommand, logger } from "../utils/helpers.js";
+const { execCommand, logger } = require("../utils/helpers.js");
 
-import { ALIAS_DATA } from "../utils/constants.js";
+const { ALIAS_DATA } = require("../utils/constants.js");
 
 const createAliases = async () => {
   // Check git aliases exist
@@ -34,4 +34,4 @@ const createAliases = async () => {
   logger.log("Create aliases success!");
 };
 
-export default createAliases;
+module.exports = createAliases;

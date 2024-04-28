@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-import act from "../commands/act.js";
-import init from "../commands/init.js";
-import install from "../commands/install.js";
-import thrust from "../commands/thrust.js";
+const act = require("./commands/act.js");
+const init = require("./commands/init.js");
+const install = require("./commands/install.js");
+const thrust = require("./commands/thrust.js");
 
 const action = process.argv[2];
 

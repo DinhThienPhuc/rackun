@@ -1,13 +1,13 @@
-import childProcess from "child_process";
-import util from "util";
+const childProcess = require("child_process");
+const util = require("util");
 
-export const wait = (milliseconds) => {
+const wait = (milliseconds) => {
   return new Promise((resolve) => {
     setTimeout(resolve, milliseconds);
   });
 };
 
-export const logger = {
+const logger = {
   ...console,
   log: (...params) => {
     console.log("%c❄️", "color:#94f2f4", ...params);
@@ -20,7 +20,7 @@ export const logger = {
   },
 };
 
-export const loading = (message) => {
+const loading = (message) => {
   const slashCharacters = ["\\", "|", "/", "-"];
   let x = 0;
   process.stdout.write("𖦹 " + message + " ");
@@ -38,7 +38,7 @@ export const loading = (message) => {
 
 const execAsync = util.promisify(childProcess.exec);
 
-export const execCommand = async (command, message) => {
+const execCommand = async (command, message) => {
   const loader = loading(message);
   try {
     return await execAsync(command);
@@ -50,7 +50,7 @@ export const execCommand = async (command, message) => {
   }
 };
 
-export const execMultiCommands = async (commands) => {
+const execMultiCommands = async (commands, message) => {
   const loader = loading(message);
   try {
     return await Promise.all(commands.map((c) => execAsync(c)));
@@ -60,4 +60,13 @@ export const execMultiCommands = async (commands) => {
   } finally {
     loader.stop();
   }
+};
+
+module.exports = {
+  wait,
+  logger,
+  loading,
+  execAsync,
+  execCommand,
+  execMultiCommands,
 };

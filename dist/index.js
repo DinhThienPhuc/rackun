@@ -1,0 +1,1 @@
+(()=>{"use strict";const s=require("./commands/act.js"),e=require("./commands/init.js"),a=require("./commands/install.js"),r=require("./commands/thrust.js");switch(process.argv[2]){case"act":s();break;case"thrust":r();break;case"init":e();break;case"install":a()}})();

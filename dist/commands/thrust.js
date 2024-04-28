@@ -1,0 +1,1 @@
+(()=>{"use strict";const{execCommand:e,logger:o}=require("../utils/helpers.js");module.exports=async()=>{const t=performance.now(),[,,,...n]=process.argv;await e("bit export","Exporting core components tagged"),await e(`git push ${n.join(" ")}`,"Pushing to github");const s=performance.now();o.log(`🦝 Done in ${((s-t)/1e3).toFixed(1)}s`)}})();

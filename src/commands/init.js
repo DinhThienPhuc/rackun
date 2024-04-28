@@ -1,8 +1,8 @@
-import { readFileSync, writeFileSync } from "fs";
+const { readFileSync, writeFileSync } = require("fs");
 
-import { INSTALL_COMMAND } from "../utils/constants.js";
-import createAliases from "./create-aliases.js";
-import { execCommand } from "../utils/helpers.js";
+const { INSTALL_COMMAND } = require("../utils/constants.js");
+const createAliases = require("./create-aliases.js");
+const { execCommand } = require("../utils/helpers.js");
 
 const init = async () => {
   // Install latest rackun version
@@ -33,4 +33,4 @@ const init = async () => {
   await createAliases();
 };
 
-export default init;
+module.exports = init;
