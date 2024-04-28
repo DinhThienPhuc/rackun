@@ -1,6 +1,6 @@
 {
   "name": "rackun",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "A tiny script for intergrating Bit with git follow.",
   "main": "bin/index.js",
   "type": "module",
